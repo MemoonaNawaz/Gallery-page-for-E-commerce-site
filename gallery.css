@@ -1,0 +1,347 @@
+/* Navbar */
+.navbar{
+  display:flex;
+  gap: 150px;
+  height: 85px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to left,  #2d6f93, #2d5b83);
+}
+.links{
+  display:flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+.links a{
+  text-decoration: none;
+  padding-top: 15px;
+  font-size: 18px;
+}
+.links a:hover{
+  color: rgb(231, 152, 25);
+  text-decoration: underline;
+        
+}
+.links button{
+  height: 45px;
+  width:90px;
+  border-radius: 25px;
+  border: 1px solid white;
+  transition:transform 0.2s ease-in-out;  
+}
+.links button:hover{
+  transform: translateY(5px);
+  background-color: rgb(78, 172, 231);
+}
+
+/* small intro */
+.intro {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: row; 
+  justify-content: center; 
+  align-items: center;    
+  gap: 20px; 
+  background: linear-gradient(to bottom, rgb(168, 191, 230), rgb(225, 222, 222));
+  text-align: center;
+}
+.intro h3 {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 3rem;
+  color: #222;
+  margin-bottom: 30px;
+ 
+}
+.intro button {
+  height: 45px;
+  width: 250px;
+  border-radius: 30px;
+  border: 2px solid steelblue;
+  transition: transform 0.2s ease-in-out;  
+  margin: 0; 
+}
+.intro img {
+  width: 350px;
+  height: auto;
+}
+
+/* below intro */
+.mainbody{
+  height: 2150px;
+  background-color: rgb(225, 222, 222);
+  padding-top: 50px;
+  padding-left: 40px;
+}
+.mainbody h3{
+  position: absolute;
+  margin-top: 50px;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.intro button:hover{
+  transform:scale(1.1);
+  font-weight: bolder;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 200px 9fr; /* sidebar + products */
+  gap: 20px;
+  align-items: start;
+}
+
+input[type="radio"] {
+  display: none; /* hide default radios */
+}
+.sidebar{
+  height: 490px;
+  margin-top: 120px;
+  border-right: 2px solid rgb(63, 123, 220);
+  margin-right: 45px;
+}
+
+/* Sidebar */
+label {
+  cursor: pointer;
+  padding: 8px 12px 8px 10px; 
+  background: #eee;
+  margin-bottom: 70px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100px;
+  border: 2px solid steelblue;
+  border-radius: 10px;
+}
+label:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 50%;           /* center under text */
+  top: 100%;           /* directly below */
+  width: 2px;
+  height: 70px;
+  border-left: 2px dotted black; 
+}
+label:hover{
+  background-color: #469ce8;
+  color: #fff;
+  font-weight: bolder;
+  
+}
+label:active{
+  background-color: #333;
+  color: #fff;
+}
+
+/* Product cards */
+.products {
+  margin-right: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  
+}
+
+.products .product {
+  padding:10px;
+  border: 2px solid #0b6f9e;
+  line-height: 1.5px;
+  border-radius:9px;
+  text-align: center;
+  background-color: white;
+  transition:transform 0.2s ease-in-out;
+}
+.products .product:hover{
+  transform:translateY(10px);
+}
+
+.product button{
+  height: 45px;
+  width:110px;
+  border-radius: 10px;
+  border: 1px solid white;
+  background-image: linear-gradient(to right, rgb(168, 168, 198),rgb(172, 161, 163) );
+  transition:transform 0.2s ease-in-out;  
+}
+
+.product button:hover{
+  transform:scale(1.1);
+  font-weight: bolder;
+}
+
+.product img{
+  height: 200px;
+  width: 100%;
+  border-radius: 9px;
+}
+
+/* Filter feature */
+#all:checked ~ .products .product {
+  display: block;
+}
+
+#electronics:checked ~ .products .product {
+  display: none;
+}
+#electronics:checked ~ .products .product.electronics {
+  display: block;
+}
+
+#beauty:checked ~ .products .product {
+  display: none;
+}
+#beauty:checked ~ .products .product.beauty {
+  display: block;
+}
+
+#shoes:checked ~ .products .product {
+  display: none;
+}
+#shoes:checked ~ .products .product.shoes {
+  display: block;
+}
+
+#home:checked ~ .products .product {
+  display: none;
+}
+#home:checked ~ .products .product.home {
+  display: block;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 1300px) {
+    .navbar {
+       flex-direction: row; 
+        gap: 10px;              
+        height: auto;           
+    }
+
+    .search input {
+        width: 100px;   
+    }
+
+    .links {
+        flex-wrap: nowrap;
+        gap: 15px;
+    }
+}
+
+@media (max-width:900px)
+{
+  .intro {
+    flex-direction: column; 
+    gap: 15px;
+  }
+
+  .intro h3{
+    margin-top: 20px;
+  }
+
+  .intro img{
+    margin-right:150px;     
+  }
+    
+  .products {
+  grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mainbody{
+    height: auto;
+  }
+
+  .navbar {
+    flex-direction: column;              
+    height: 280px;  
+    gap: 30px;         
+  }
+
+  .search input {
+    width: 100px;   
+  }
+
+  .links {
+    flex-wrap: nowrap;
+    gap: 15px;
+  }
+}
+
+@media (max-width:600px)
+{
+  .mainbody{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+ .navbar {
+    flex-direction: column; 
+    height: 280px;  
+    gap: 30px;            
+  }
+
+  .search input {
+    width: 100%;   
+  }
+
+  .links {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column; /* sidebar + products */
+    gap: 20px;
+    align-items: start;
+}
+  .sidebar{
+    border-right: none;
+    display: flex;
+    flex-direction: row ;
+    flex-wrap: wrap;
+    gap: 0px 20px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 0px; 
+    height: 200px;
+}
+  .sidebar label {
+    width: 100px;
+    border: 2px solid steelblue;
+    border-radius: 10px;
+    gap: 0px 20px;
+}
+  .sidebar label:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 50%;           
+    top: 100%;           
+    width: 200px;
+    height: 1px;
+    border-left: 1px dotted black; 
+}
+  .products {
+    margin-left: 80px;
+}
+  .product img{
+    height: 300px;
+}
+}
+
+
+/* dropdown
+flexbox
+media query
+grid */
